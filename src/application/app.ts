@@ -5,6 +5,7 @@ import {Server} from "../infrastructure/entry-points/api-rest";
 const PORT = Number(process.env.PORT) || 3000;
 
 const bootstrap = async () => {
+    // await connectDB()
     return container.get<Server>(Symbol.for("Server"));
 }
 
