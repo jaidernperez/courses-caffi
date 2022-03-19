@@ -9,6 +9,7 @@ export class Slide {
     public alternate: string;
     public type: number;
     public state: number;
+    public video: string;
     public createdDate: Date;
 
     constructor() {

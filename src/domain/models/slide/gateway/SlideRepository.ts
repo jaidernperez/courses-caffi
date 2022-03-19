@@ -5,6 +5,8 @@ export interface SlideRepository {
 
     save(person: Slide): Promise<Slide>;
 
+    update(person: Slide): Promise<Slide>;
+
     findById(id: number): Promise<Slide>;
 
     findByDocument(document: string): Promise<Slide>;

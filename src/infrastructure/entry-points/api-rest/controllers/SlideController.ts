@@ -12,10 +12,28 @@ export class SlideController {
     public routes(app: express.Application): void {
         app.route("/slides").get((req: express.Request, res: express.Response) => {
             this.loanUseCase.getSlides().then((response) => {
-                res.status(200).send({
-                    message: response
-                });
-            })
-        })
+                SlideController.doResponse(res, response, 200);
+            });
+        }).post((req: express.Request, res: express.Response) => {
+            try {
+                this.loanUseCase.saveSlide(req.body).then(response => {
+                    SlideController.doResponse(res, response, 201);
+                })
+            } catch (e) {
+                SlideController.doErrorResponse(res, 400, e.message);
+            }
+        });
+    }
+
+    private static doErrorResponse(res: express.Response, statusCode: number, message: string): express.Response {
+        return res.status(statusCode).send({
+            validationError: message
+        });
+    }
+
+    private static doResponse(res: express.Response, response: any, statusCode: number): express.Response {
+        return res.status(statusCode).send({
+            response
+        });
     }
 }

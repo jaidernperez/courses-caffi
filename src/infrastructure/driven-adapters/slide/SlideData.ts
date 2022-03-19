@@ -30,6 +30,9 @@ export class SlideData {
     @Column({type: 'number'})
     public state: number;
 
+    @Column({type: 'varchar'})
+    public video: string;
+
     @Column({type: 'timestamp', name: 'created_date'})
     public createdDate: Date;
 

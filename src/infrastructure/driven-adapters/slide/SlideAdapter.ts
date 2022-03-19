@@ -29,6 +29,10 @@ export class SlideAdapter implements SlideRepository {
         return Promise.resolve(undefined);
     }
 
+    update(person: Slide): Promise<Slide> {
+        return Promise.resolve(undefined);
+    }
+
     save(person: Slide): Promise<Slide> {
         return Promise.resolve(undefined);
     }
