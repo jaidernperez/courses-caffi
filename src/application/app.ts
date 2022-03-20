@@ -2,6 +2,9 @@ import 'dotenv/config';
 import {container} from "./config/config";
 import {Server} from "../infrastructure/entry-points/api-rest";
 import {connectDB} from "../infrastructure/driven-adapters";
+import { Logger } from "tslog";
+
+const log: Logger = new Logger({ name: "appLogger" });
 
 const PORT = Number(process.env.PORT) || 3000;
 
@@ -11,6 +14,6 @@ const bootstrap = async () => {
 }
 
 bootstrap().then(server => {
-    console.log(`Server is listening on localhost:${PORT}, open your browser on http://localhost:${PORT}/`);
+    log.info(`Server is listening on localhost:${PORT}, open your browser on http://localhost:${PORT}/`);
     server.start(PORT);
-}).catch(reason => console.log(reason));
+}).catch(reason => log.error(reason));
