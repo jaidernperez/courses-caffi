@@ -5,11 +5,11 @@ import {SlideData} from "./slide/SlideData";
 export const connectDB = (): Promise<any> => {
     return createConnection({
         type: "postgres",
-        host: "localhost",
-        port: 5432,
-        username: "postgres",
-        password: "postgres",
-        database: "db_courses",
+        host: process.env.HOST,
+        port: Number(process.env.DATABASE_PORT),
+        username: process.env.USERNAME,
+        password: process.env.PASSWORD,
+        database: process.env.DATABASE,
         entities: [SlideData],
         synchronize: true
     });
