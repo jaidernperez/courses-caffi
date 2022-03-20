@@ -2,6 +2,7 @@ import "reflect-metadata";
 import {inject, injectable} from "inversify";
 import * as express from "express";
 import {SlideUseCase} from "../../../../domain/usecases";
+import {HttpException} from "../../../../domain/exceptions/HttpException";
 
 @injectable()
 export class SlideController {
@@ -14,13 +15,14 @@ export class SlideController {
             this.loanUseCase.getSlides().then((response) => {
                 SlideController.doResponse(res, response, 200);
             });
-        }).post((req: express.Request, res: express.Response) => {
+        }).post((req: express.Request, res: express.Response, next: express.NextFunction) => {
             try {
                 this.loanUseCase.saveSlide(req.body).then(response => {
                     SlideController.doResponse(res, response, 201);
                 })
             } catch (e) {
-                SlideController.doErrorResponse(res, 400, e.message);
+                //SlideController.doErrorResponse(res, 400, e.message);
+                next(new HttpException(404, e.message));
             }
         });
     }

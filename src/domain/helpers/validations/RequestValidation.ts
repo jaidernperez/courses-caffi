@@ -1,5 +1,6 @@
 import * as Joi from "joi";
 import {SlideRequest} from "../../usecases";
+import {HttpException} from "../../exceptions/HttpException";
 
 export class RequestValidation {
 
@@ -10,7 +11,7 @@ export class RequestValidation {
         if (error != null) {
             const {details} = error;
             const message = details.map(i => i.message).join(',').replace(/"/g, '');
-            throw new Error('the field ' + message);
+            throw new HttpException(400, 'the field ' + message);
         }
     }
 
