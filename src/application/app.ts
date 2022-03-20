@@ -1,11 +1,12 @@
 import 'dotenv/config';
 import {container} from "./config/config";
 import {Server} from "../infrastructure/entry-points/api-rest";
+import {connectDB} from "../infrastructure/driven-adapters";
 
 const PORT = Number(process.env.PORT) || 3000;
 
 const bootstrap = async () => {
-    // await connectDB()
+    await connectDB()
     return container.get<Server>(Symbol.for("Server"));
 }
 

@@ -1,7 +1,8 @@
 import {inject, injectable} from "inversify";
-import {DeleteResult} from "typeorm";
+import {DeleteResult, getConnection, Repository, UpdateResult} from "typeorm";
 import {Slide, SlideRepository} from "../../../domain/models";
 import {SlideMapperData} from "../mappers/SlideMapperData";
+import {SlideData} from "./SlideData";
 
 @injectable()
 export class SlideAdapter implements SlideRepository {
@@ -10,31 +11,43 @@ export class SlideAdapter implements SlideRepository {
     }
 
     delete(id: number): Promise<DeleteResult> {
-        return Promise.resolve(undefined);
+        const slideDataRepository: Repository<SlideData> = getConnection().getRepository(SlideData);
+        return slideDataRepository.delete({id: id});
     }
 
-    existsById(id: number): Promise<boolean> {
-        return Promise.resolve(false);
+    async existsById(id: number): Promise<boolean> {
+        const slideDataRepository: Repository<SlideData> = getConnection().getRepository(SlideData);
+        return await slideDataRepository.count({id: id}) > 0;
     }
 
     findAll(): Promise<Slide[]> {
-        return Promise.resolve([]);
-    }
-
-    findByDocument(document: string): Promise<Slide> {
-        return Promise.resolve(undefined);
+        const slideDataRepository: Repository<SlideData> = getConnection().getRepository(SlideData);
+        return this.mapper.listDataToEntity(slideDataRepository.find());
     }
 
     findById(id: number): Promise<Slide> {
-        return Promise.resolve(undefined);
+        const slideDataRepository: Repository<SlideData> = getConnection().getRepository(SlideData);
+        return this.mapper.dataToEntity(slideDataRepository.findOneOrFail({id: id}));
     }
 
-    update(person: Slide): Promise<Slide> {
-        return Promise.resolve(undefined);
+    update(slide: Slide): Promise<UpdateResult> {
+        const slideDataRepository: Repository<SlideData> = getConnection().getRepository(SlideData);
+        return slideDataRepository.update({id: slide.id}, {
+            title: slide.title,
+            description: slide.description,
+            textButton: slide.textButton,
+            url: slide.url,
+            image: slide.image,
+            alternate: slide.alternate,
+            type: slide.type,
+            state: slide.state,
+            video: slide.video
+        });
     }
 
-    save(person: Slide): Promise<Slide> {
-        return Promise.resolve(undefined);
+    save(slide: Slide): Promise<Slide> {
+        const slideDataRepository: Repository<SlideData> = getConnection().getRepository(SlideData);
+        return this.mapper.dataToEntity(slideDataRepository.save(this.mapper.entityToData(slide)));
     }
 
 }

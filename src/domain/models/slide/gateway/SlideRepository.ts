@@ -1,15 +1,13 @@
-import {DeleteResult} from "typeorm";
+import {DeleteResult, UpdateResult} from "typeorm";
 import {Slide} from "../Slide";
 
 export interface SlideRepository {
 
-    save(person: Slide): Promise<Slide>;
+    save(slide: Slide): Promise<Slide>;
 
-    update(person: Slide): Promise<Slide>;
+    update(slide: Slide): Promise<UpdateResult>;
 
     findById(id: number): Promise<Slide>;
-
-    findByDocument(document: string): Promise<Slide>;
 
     findAll(): Promise<Slide[]>;
 

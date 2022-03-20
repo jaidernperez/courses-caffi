@@ -1,5 +1,6 @@
 export class SlideResponse {
 
+    public id: number;
     public title: string;
     public description: string;
     public textButton: string;
@@ -8,6 +9,7 @@ export class SlideResponse {
     public alternate: string;
     public type: number;
     public state: number;
+    public video: string;
 
     constructor() {
     }
