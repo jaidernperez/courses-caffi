@@ -20,24 +20,24 @@ export class SlideUseCase {
     }
 
     saveSlide(request: SlideRequest): Promise<SlideResponse> {
-        RequestValidation.validateRequest(request, true);
-        return this.mapper.entityToResponse(this.repository.save(this.mapper.requestToEntity(request)));
+        return RequestValidation.validateRequest(request, true).then(() =>
+            this.mapper.entityToResponse(this.repository.save(this.mapper.requestToEntity(request)))
+        );
     }
 
     updateSlide(request: SlideRequest): Promise<SlideResponse> {
-        RequestValidation.validateRequest(request, false);
-        this.validateSlideId(request.id).then(() => {});
-        return this.mapper.entityToResponse(this.repository.update(this.mapper.requestToEntity(request)));
+        return RequestValidation.validateRequest(request, false).then(() =>
+            this.validateSlideId(request.id).then(() =>
+                this.mapper.entityToResponse(this.repository.update(this.mapper.requestToEntity(request)))
+            ));
     }
 
-    private async validateSlideId(id: number): Promise<Error> {
-        let exists;
-        await this.repository.existsById(id).then(value => {
-            exists = value;
+    private async validateSlideId(id: number): Promise<void> {
+        return await this.repository.existsById(id).then(value => {
+            if (!value) {
+                Promise.reject(new HttpException(404, Constants.SLIDE_NOT_FOUND));
+            }
         });
-        if (!exists) {
-            return new HttpException(404, Constants.SLIDE_NOT_FOUND);
-        }
     }
 
 }

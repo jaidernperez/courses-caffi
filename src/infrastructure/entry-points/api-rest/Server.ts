@@ -2,7 +2,7 @@ import {inject, injectable} from "inversify";
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import {SlideController} from "./controllers/SlideController";
-import {errorMiddleware} from "../../middlewares/error.middleware";
+import {errorResponseMiddleware} from "../../middlewares/error.middleware";
 
 @injectable()
 export class Server {
@@ -15,7 +15,7 @@ export class Server {
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({extended: false}));
         this.loanController.routes(app);
-        app.use(errorMiddleware);
+        app.use(errorResponseMiddleware);
         app.listen(port);
     }
 }

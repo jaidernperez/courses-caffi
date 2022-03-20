@@ -4,15 +4,16 @@ import {HttpException} from "../../exceptions/HttpException";
 
 export class RequestValidation {
 
-    public static validateRequest(request: SlideRequest, create: boolean): void {
+    public static validateRequest(request: SlideRequest, create: boolean): Promise<void> {
         const {error} = (create) ? RequestValidation.getValidationSaveRequestSchema()
             .validate(request) : RequestValidation.getValidationUpdateRequestSchema().validate(request);
 
         if (error != null) {
             const {details} = error;
             const message = details.map(i => i.message).join(',').replace(/"/g, '');
-            throw new HttpException(400, 'the field ' + message);
+            return Promise.reject(new HttpException(400, 'the field ' + message));
         }
+        return Promise.resolve();
     }
 
     private static getValidationSaveRequestSchema(): Joi.Schema {
