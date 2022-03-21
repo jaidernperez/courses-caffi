@@ -1,6 +1,6 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 
-@Entity({name: 'slide'})
+@Entity({name: 'slides'})
 export class SlideData {
 
     @PrimaryGeneratedColumn()
@@ -9,10 +9,10 @@ export class SlideData {
     @Column({type: 'varchar'})
     public title: string;
 
-    @Column({type: 'varchar', name: 'document_type'})
+    @Column({type: 'varchar'})
     public description: string;
 
-    @Column({type: 'varchar'})
+    @Column({type: 'varchar', name: 'text_button'})
     public textButton: string;
 
     @Column({type: 'varchar'})
@@ -24,11 +24,14 @@ export class SlideData {
     @Column({type: 'varchar'})
     public alternate: string;
 
-    @Column({type: 'number'})
+    @Column({type: 'integer'})
     public type: number;
 
-    @Column({type: 'number'})
+    @Column({type: 'integer'})
     public state: number;
+
+    @Column({type: 'varchar'})
+    public video: string;
 
     @Column({type: 'timestamp', name: 'created_date'})
     public createdDate: Date;

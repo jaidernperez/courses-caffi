@@ -1,4 +1,4 @@
-export class Slide {
+export class SlideRequest {
 
     public id: number;
     public title: string;
@@ -9,9 +9,8 @@ export class Slide {
     public alternate: string;
     public type: number;
     public state: number;
-    public createdDate: Date;
+    public video: string;
 
     constructor() {
-        this.createdDate = new Date();
     }
 }

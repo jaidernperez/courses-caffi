@@ -1,3 +1,3 @@
-export {SlideUseCase} from "./slide/SlideUseCase";
-export {SlideRequest} from "./dtos/request/SlideRequest";
-export {SlideResponse} from "./dtos/response/SlideResponse";
+export {SlideUseCase} from './slide/slide.usecase';
+export {SlideRequest} from './dtos/request/slide.request';
+export {SlideResponse} from './dtos/response/slide.response';

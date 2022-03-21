@@ -1,2 +1,2 @@
-export {SlideMapperDomain} from './SlideMapperDomain';
-export {SlideMapperDomainImpl} from './SlideMapperDomainImpl';
+export {SlideDomainMapper} from './slide.domain.mapper';
+export {SlideDomainMapperImpl} from './slide.domain.mapper.impl';
