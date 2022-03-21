@@ -1,13 +1,13 @@
-import {inject, injectable} from "inversify";
-import {DeleteResult, getConnection, Repository, UpdateResult} from "typeorm";
-import {Slide, SlideRepository} from "../../../domain/models";
-import {SlideMapperData} from "../mappers/SlideMapperData";
-import {SlideData} from "./SlideData";
+import {inject, injectable} from 'inversify';
+import {DeleteResult, getConnection, Repository, UpdateResult} from 'typeorm';
+import {Slide, SlideRepository} from '../../../domain/models';
+import {SlideMapperData} from '../mappers/SlideMapperData';
+import {SlideData} from './SlideData';
 
 @injectable()
 export class SlideAdapter implements SlideRepository {
 
-    constructor(@inject(Symbol.for("SlideMapperData")) private mapper: SlideMapperData) {
+    constructor(@inject(Symbol.for('SlideMapperData')) private mapper: SlideMapperData) {
     }
 
     delete(id: number): Promise<DeleteResult> {

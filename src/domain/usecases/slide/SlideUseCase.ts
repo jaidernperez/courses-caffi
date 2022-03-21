@@ -1,12 +1,12 @@
-import "reflect-metadata";
-import {inject, injectable} from "inversify";
-import {SlideRepository} from "../../models";
-import {SlideMapperDomain} from "../../mappers";
-import {SlideRequest} from "../dtos/request/SlideRequest";
-import {SlideResponse} from "../dtos/response/SlideResponse";
-import {RequestValidation} from "../../helpers";
-import {Constants} from "../../constants/Constants";
-import {HttpException} from "../../exceptions/HttpException";
+import 'reflect-metadata';
+import {inject, injectable} from 'inversify';
+import {SlideRepository} from '../../models';
+import {SlideMapperDomain} from '../../mappers';
+import {SlideRequest} from '../dtos/request/SlideRequest';
+import {SlideResponse} from '../dtos/response/SlideResponse';
+import {RequestValidation} from '../../helpers';
+import {Constants} from '../../constants/Constants';
+import {HttpException} from '../../exceptions/HttpException';
 
 @injectable()
 export class SlideUseCase {

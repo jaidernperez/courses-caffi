@@ -1,6 +1,6 @@
-import * as Joi from "joi";
-import {SlideRequest} from "../../usecases";
-import {HttpException} from "../../exceptions/HttpException";
+import * as Joi from 'joi';
+import {SlideRequest} from '../../usecases';
+import {HttpException} from '../../exceptions/HttpException';
 
 export class RequestValidation {
 

@@ -1,14 +1,14 @@
-import {inject, injectable} from "inversify";
-import * as express from "express";
-import * as bodyParser from "body-parser";
-import {SlideController} from "./controllers/SlideController";
-import {errorResponseMiddleware} from "../../middlewares/error.middleware";
-import morganMiddleware from "../../middlewares/morgan.middleware";
+import {inject, injectable} from 'inversify';
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
+import {SlideController} from './controllers/SlideController';
+import {errorResponseMiddleware} from '../../middlewares/error.middleware';
+import morganMiddleware from '../../middlewares/morgan.middleware';
 
 @injectable()
 export class Server {
 
-    constructor(@inject(Symbol.for("SlideController")) private loanController: SlideController) {
+    constructor(@inject(Symbol.for('SlideController')) private loanController: SlideController) {
     }
 
     public start(port: number): void {

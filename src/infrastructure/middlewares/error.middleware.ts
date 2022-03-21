@@ -1,5 +1,5 @@
-import {HttpException} from "../../domain/exceptions/HttpException";
-import {NextFunction, Request, Response} from "express";
+import {HttpException} from '../../domain/exceptions/HttpException';
+import {NextFunction, Request, Response} from 'express';
 
 export const errorResponseMiddleware = (error: HttpException, request: Request, response: Response, next: NextFunction) => {
     const status = error.status || 500;
@@ -9,5 +9,5 @@ export const errorResponseMiddleware = (error: HttpException, request: Request, 
         status,
         timestamp,
         message,
-    })
+    });
 };

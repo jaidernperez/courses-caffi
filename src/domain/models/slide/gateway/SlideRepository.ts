@@ -1,5 +1,5 @@
-import {DeleteResult, UpdateResult} from "typeorm";
-import {Slide} from "../Slide";
+import {DeleteResult, UpdateResult} from 'typeorm';
+import {Slide} from '../Slide';
 
 export interface SlideRepository {
 

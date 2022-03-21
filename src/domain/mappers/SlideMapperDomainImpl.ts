@@ -1,7 +1,7 @@
-import {SlideMapperDomain} from "./SlideMapperDomain";
-import {Slide} from "../models";
-import {SlideRequest, SlideResponse} from "../usecases";
-import {injectable} from "inversify";
+import {SlideMapperDomain} from './SlideMapperDomain';
+import {Slide} from '../models';
+import {SlideRequest, SlideResponse} from '../usecases';
+import {injectable} from 'inversify';
 
 @injectable()
 export class SlideMapperDomainImpl implements SlideMapperDomain {
@@ -25,7 +25,7 @@ export class SlideMapperDomainImpl implements SlideMapperDomain {
 
     requestToEntity(request: SlideRequest): Slide {
         let slideEntity = new Slide();
-        if (request.id !== null) slideEntity.id = request.id
+        if (request.id !== null) slideEntity.id = request.id;
         slideEntity.title = request.title;
         slideEntity.description = request.description;
         slideEntity.textButton = request.textButton;
@@ -44,7 +44,7 @@ export class SlideMapperDomainImpl implements SlideMapperDomain {
             list.forEach(slide => {
                 slideResponse.push(SlideMapperDomainImpl.entityToResponseObj(slide));
             });
-        })
+        });
         return slideResponse;
     }
 
