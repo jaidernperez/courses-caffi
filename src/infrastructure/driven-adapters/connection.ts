@@ -11,6 +11,9 @@ export const connectDB = (): Promise<any> => {
         password: process.env.PASSWORD,
         database: process.env.DATABASE,
         entities: [SlideData],
-        synchronize: true
+        synchronize: true,
+        ssl: {
+            rejectUnauthorized: false
+        }
     });
 };
