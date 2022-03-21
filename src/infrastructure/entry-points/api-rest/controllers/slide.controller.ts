@@ -37,6 +37,8 @@ export class SlideController {
         }).delete((req: Request, res: Response, next: NextFunction) => {
             this.slideUseCase.deleteSlide(Number(req.params.id)).then(result => {
                 res.status(200).send({result});
+            }).catch(reason => {
+                next(reason);
             });
         });
     }

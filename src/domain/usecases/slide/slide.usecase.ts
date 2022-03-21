@@ -44,7 +44,7 @@ export class SlideUseCase {
         if ((await this.repository.delete(id)).affected == 1) {
             return Promise.resolve(Constants.SLIDE_DELETED_SUCCESSFULLY);
         } else {
-            return Promise.resolve(Constants.SLIDE_NOT_FOUND);
+            return Promise.reject(new HttpException(404, Constants.SLIDE_NOT_FOUND));
         }
     }
 
