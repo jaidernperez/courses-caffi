@@ -1,1 +1,1 @@
-export {RequestValidation} from './validations/RequestValidation';
+export {RequestValidation} from './validations/request.validation';

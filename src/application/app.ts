@@ -2,7 +2,7 @@ import 'dotenv/config';
 import {container} from './config/config';
 import {Server} from '../infrastructure/entry-points/api-rest';
 import {connectDB} from '../infrastructure/driven-adapters';
-import Logger from '../domain/helpers/Logger';
+import Logger from '../domain/helpers/logger';
 
 const PORT = Number(process.env.PORT) || 3000;
 

@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import {createConnection} from 'typeorm';
-import {SlideData} from './slide/SlideData';
+import {SlideData} from './slide/slide.data';
 
 export const connectDB = (): Promise<any> => {
     return createConnection({

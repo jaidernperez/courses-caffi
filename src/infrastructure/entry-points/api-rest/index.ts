@@ -1,2 +1,2 @@
-export {SlideController} from './controllers/SlideController';
-export {Server} from './Server';
+export {SlideController} from './controllers/slide.controller';
+export {Server} from './server';

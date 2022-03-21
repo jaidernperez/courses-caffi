@@ -1,7 +1,7 @@
 import {SlideRequest, SlideResponse} from '../usecases';
 import {Slide} from '../models';
 
-export interface SlideMapperDomain {
+export interface SlideDomainMapper {
 
     entityToResponse(entity: Promise<Slide>): Promise<SlideResponse>;
 

@@ -1,10 +1,10 @@
 import {injectable} from 'inversify';
-import {SlideMapperData} from './SlideMapperData';
-import {SlideData} from '../slide/SlideData';
+import {SlideDataMapper} from './slide.data.mapper';
+import {SlideData} from '../slide/slide.data';
 import {Slide} from '../../../domain/models';
 
 @injectable()
-export class SlideMapperDataImpl implements SlideMapperData {
+export class SlideDataMapperImpl implements SlideDataMapper {
 
     async dataToEntity(data: Promise<SlideData>): Promise<Slide> {
         let slide: Slide = new Slide();
@@ -44,7 +44,7 @@ export class SlideMapperDataImpl implements SlideMapperData {
         let slideEntity = [];
         await listData.then(list => {
             list.forEach(slideData => {
-                slideEntity.push(SlideMapperDataImpl.dataToEntityObj(slideData));
+                slideEntity.push(SlideDataMapperImpl.dataToEntityObj(slideData));
             });
         });
         return slideEntity;

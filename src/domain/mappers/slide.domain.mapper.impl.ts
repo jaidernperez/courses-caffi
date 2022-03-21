@@ -1,10 +1,10 @@
-import {SlideMapperDomain} from './SlideMapperDomain';
+import {SlideDomainMapper} from './slide.domain.mapper';
 import {Slide} from '../models';
 import {SlideRequest, SlideResponse} from '../usecases';
 import {injectable} from 'inversify';
 
 @injectable()
-export class SlideMapperDomainImpl implements SlideMapperDomain {
+export class SlideDomainMapperImpl implements SlideDomainMapper {
 
     async entityToResponse(entity: Promise<Slide>): Promise<SlideResponse> {
         let slideResponse = new SlideResponse();
@@ -42,7 +42,7 @@ export class SlideMapperDomainImpl implements SlideMapperDomain {
         let slideResponse = [];
         await entityList.then(list => {
             list.forEach(slide => {
-                slideResponse.push(SlideMapperDomainImpl.entityToResponseObj(slide));
+                slideResponse.push(SlideDomainMapperImpl.entityToResponseObj(slide));
             });
         });
         return slideResponse;

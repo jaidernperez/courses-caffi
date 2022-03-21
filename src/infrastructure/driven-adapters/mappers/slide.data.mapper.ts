@@ -1,7 +1,7 @@
-import {SlideData} from '../slide/SlideData';
+import {SlideData} from '../slide/slide.data';
 import {Slide} from '../../../domain/models';
 
-export interface SlideMapperData {
+export interface SlideDataMapper {
 
     dataToEntity(data: Promise<SlideData>): Promise<Slide>;
 

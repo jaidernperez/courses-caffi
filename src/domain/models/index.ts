@@ -1,2 +1,2 @@
-export {Slide} from './slide/Slide';
-export {SlideRepository} from './slide/gateway/SlideRepository';
+export {Slide} from './slide/slide';
+export {SlideRepository} from './slide/gateway/slide.repository';

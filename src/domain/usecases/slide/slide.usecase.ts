@@ -1,18 +1,18 @@
 import 'reflect-metadata';
 import {inject, injectable} from 'inversify';
 import {SlideRepository} from '../../models';
-import {SlideMapperDomain} from '../../mappers';
-import {SlideRequest} from '../dtos/request/SlideRequest';
-import {SlideResponse} from '../dtos/response/SlideResponse';
+import {SlideDomainMapper} from '../../mappers';
+import {SlideRequest} from '../dtos/request/slide.request';
+import {SlideResponse} from '../dtos/response/slide.response';
 import {RequestValidation} from '../../helpers';
-import {Constants} from '../../constants/Constants';
-import {HttpException} from '../../exceptions/HttpException';
+import {Constants} from '../../constants/constants';
+import {HttpException} from '../../exceptions/http.exception';
 
 @injectable()
 export class SlideUseCase {
 
     constructor(@inject(Symbol.for('SlideRepository')) private repository: SlideRepository,
-                @inject(Symbol.for('SlideMapperDomain')) private mapper: SlideMapperDomain) {
+                @inject(Symbol.for('SlideDomainMapper')) private mapper: SlideDomainMapper) {
     }
 
     getSlides(): Promise<SlideResponse[]> {

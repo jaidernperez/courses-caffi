@@ -1,7 +1,7 @@
 import {inject, injectable} from 'inversify';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import {SlideController} from './controllers/SlideController';
+import {SlideController} from './controllers/slide.controller';
 import {errorResponseMiddleware} from '../../middlewares/error.middleware';
 import morganMiddleware from '../../middlewares/morgan.middleware';
 
