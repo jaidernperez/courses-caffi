@@ -1,7 +1,7 @@
 import {injectable} from 'inversify';
 import {SlideDataMapper} from './slide.data.mapper';
-import {SlideData} from '../slide/slide.data';
-import {Slide} from '../../../domain/models';
+import {SlideData} from '../../slide/slide.data';
+import {Slide} from '../../../../domain/models';
 
 @injectable()
 export class SlideDataMapperImpl implements SlideDataMapper {
