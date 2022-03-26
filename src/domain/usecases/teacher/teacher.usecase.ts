@@ -21,7 +21,7 @@ export class TeacherUseCase {
         });
     }
 
-    getTeacherById(id: number): Promise<TeacherResponse> {
+    findTeacherById(id: number): Promise<TeacherResponse> {
         return this.mapper.entityToResponse(this.repository.findById(id)).catch(() => {
             throw new HttpException(404, Constants.TEACHER_NOT_FOUND);
         });
