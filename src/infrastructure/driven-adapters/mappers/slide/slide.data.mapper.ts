@@ -1,5 +1,5 @@
-import {SlideData} from '../slide/slide.data';
-import {Slide} from '../../../domain/models';
+import {SlideData} from '../../slide/slide.data';
+import {Slide} from '../../../../domain/models';
 
 export interface SlideDataMapper {
 

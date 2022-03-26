@@ -2,11 +2,11 @@ import * as Joi from 'joi';
 import {SlideRequest} from '../../usecases';
 import {HttpException} from '../../exceptions/http.exception';
 
-export class RequestValidation {
+export class RequestSlideValidation {
 
     public static validateRequest(request: SlideRequest, create: boolean): Promise<void> {
-        const {error} = (create) ? RequestValidation.getValidationSaveRequestSchema()
-            .validate(request) : RequestValidation.getValidationUpdateRequestSchema().validate(request);
+        const {error} = (create) ? RequestSlideValidation.getValidationSaveRequestSchema()
+            .validate(request) : RequestSlideValidation.getValidationUpdateRequestSchema().validate(request);
 
         if (error != null) {
             const {details} = error;

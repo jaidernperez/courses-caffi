@@ -1,7 +1,7 @@
 import {inject, injectable} from 'inversify';
 import {DeleteResult, getConnection, Repository, UpdateResult} from 'typeorm';
 import {Slide, SlideRepository} from '../../../domain/models';
-import {SlideDataMapper} from '../mappers/slide.data.mapper';
+import {SlideDataMapper} from '../mappers/slide/slide.data.mapper';
 import {SlideData} from './slide.data';
 
 @injectable()

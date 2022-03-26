@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import {createConnection} from 'typeorm';
 import {SlideData} from './slide/slide.data';
+import {TeacherData} from './teacher/teacher.data';
 
 export const connectDB = (): Promise<any> => {
     return createConnection({
@@ -10,7 +11,10 @@ export const connectDB = (): Promise<any> => {
         username: process.env.USERNAME,
         password: process.env.PASSWORD,
         database: process.env.DATABASE,
-        entities: [SlideData],
-        synchronize: true
+        entities: [SlideData, TeacherData],
+        synchronize: true,
+        ssl: process.env.NODE_ENV === 'production' ? {
+            rejectUnauthorized: false
+        } : false
     });
 };
