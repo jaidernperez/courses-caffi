@@ -1,5 +1,5 @@
-import {SlideRequest, SlideResponse} from '../usecases';
-import {Slide} from '../models';
+import {SlideRequest, SlideResponse} from '../../usecases';
+import {Slide} from '../../models';
 
 export interface SlideDomainMapper {
 

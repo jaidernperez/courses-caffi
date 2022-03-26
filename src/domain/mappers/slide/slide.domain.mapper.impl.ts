@@ -1,6 +1,6 @@
 import {SlideDomainMapper} from './slide.domain.mapper';
-import {Slide} from '../models';
-import {SlideRequest, SlideResponse} from '../usecases';
+import {Slide} from '../../models';
+import {SlideRequest, SlideResponse} from '../../usecases';
 import {injectable} from 'inversify';
 
 @injectable()

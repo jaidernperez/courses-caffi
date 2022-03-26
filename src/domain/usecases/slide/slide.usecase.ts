@@ -4,7 +4,7 @@ import {SlideRepository} from '../../models';
 import {SlideDomainMapper} from '../../mappers';
 import {SlideRequest} from '../dtos/request/slide.request';
 import {SlideResponse} from '../dtos/response/slide.response';
-import {RequestValidation} from '../../helpers';
+import {RequestSlideValidation} from '../../helpers';
 import {Constants} from '../../constants/constants';
 import {HttpException} from '../../exceptions/http.exception';
 
@@ -26,13 +26,13 @@ export class SlideUseCase {
     }
 
     saveSlide(request: SlideRequest): Promise<SlideResponse> {
-        return RequestValidation.validateRequest(request, true).then(() =>
+        return RequestSlideValidation.validateRequest(request, true).then(() =>
             this.mapper.entityToResponse(this.repository.save(this.mapper.requestToEntity(request)))
         );
     }
 
     async updateSlide(request: SlideRequest): Promise<string> {
-        return RequestValidation.validateRequest(request, false).then(() =>
+        return RequestSlideValidation.validateRequest(request, false).then(() =>
             this.validateSlideId(request.id).then(async () => {
                 if ((await this.repository.update(this.mapper.requestToEntity(request))).affected == 1) {
                     return Promise.resolve(Constants.SLIDE_UPDATE_SUCCESSFULLY);
