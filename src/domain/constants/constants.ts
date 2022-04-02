@@ -12,4 +12,8 @@ export class Constants {
 
     public static TEACHER_DELETED_SUCCESSFULLY: string = 'teacher deleted successfully';
 
+    public static TEMPLATE_NOT_FOUND: string = 'template deleted successfully';
+
+    public static TEMPLATE_UPDATE_SUCCESSFULLY: string = 'template update successfully';
+
 }
