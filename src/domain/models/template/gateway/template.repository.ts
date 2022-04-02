@@ -10,4 +10,6 @@ export interface TemplateRepository {
     findById(id: number): Promise<Template>;
 
     findTemplates(): Promise<Template[]>;
+
+    existsById(id: number): Promise<boolean>;
 }

@@ -4,3 +4,6 @@ export {SlideResponse} from './dtos/response/slide.response';
 export {TeacherUseCase} from './teacher/teacher.usecase';
 export {TeacherRequest} from './dtos/request/teacher.request';
 export {TeacherResponse} from './dtos/response/teacher.response';
+export {TemplateUseCase} from './template/template.usecase';
+export {TemplateRequest} from './dtos/request/template.request';
+export {TemplateResponse} from './dtos/response/template.response';

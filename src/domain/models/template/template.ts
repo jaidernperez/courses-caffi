@@ -12,11 +12,11 @@ export class Template {
     public instagramLink: string;
     public youtubeLink: string;
     public whatsappLink: string;
-    private merchantId: number;
-    private accountId: number;
-    private apiKey: string;
-    private sandbox: number;
-    private createdDate: Date;
+    public merchantId: number;
+    public accountId: number;
+    public apiKey: string;
+    public sandbox: number;
+    public createdDate: Date;
 
     constructor() {
         this.createdDate = new Date();
