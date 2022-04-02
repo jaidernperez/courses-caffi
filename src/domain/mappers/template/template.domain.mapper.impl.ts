@@ -32,9 +32,10 @@ export class TemplateDomainMapperImpl implements TemplateDomainMapper {
         templateEntity.description = request.description;
         templateEntity.logo = request.logo;
         templateEntity.phone = request.phone;
+        templateEntity.email = request.email;
         templateEntity.address = request.address;
         templateEntity.city = request.city;
-        templateEntity.facebookLink = request.siteName;
+        templateEntity.facebookLink = request.facebookLink;
         templateEntity.instagramLink = request.instagramLink;
         templateEntity.youtubeLink = request.youtubeLink;
         templateEntity.whatsappLink = request.whatsappLink;
@@ -61,9 +62,10 @@ export class TemplateDomainMapperImpl implements TemplateDomainMapper {
         templateResponse.description = entity.description;
         templateResponse.logo = entity.logo;
         templateResponse.phone = entity.phone;
+        templateResponse.email = entity.email;
         templateResponse.address = entity.address;
         templateResponse.city = entity.city;
-        templateResponse.facebookLink = entity.siteName;
+        templateResponse.facebookLink = entity.facebookLink;
         templateResponse.instagramLink = entity.instagramLink;
         templateResponse.youtubeLink = entity.youtubeLink;
         templateResponse.whatsappLink = entity.whatsappLink;

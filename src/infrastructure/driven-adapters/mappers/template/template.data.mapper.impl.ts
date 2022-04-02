@@ -14,9 +14,10 @@ export class TemplateDataMapperImpl implements TemplateDataMapper {
             template.description = templateData.description;
             template.logo = templateData.logo;
             template.phone = templateData.phone;
+            template.email = templateData.email;
             template.address = templateData.address;
             template.city = templateData.city;
-            template.facebookLink = templateData.siteName;
+            template.facebookLink = templateData.facebookLink;
             template.instagramLink = templateData.instagramLink;
             template.youtubeLink = templateData.youtubeLink;
             template.whatsappLink = templateData.whatsappLink;
@@ -36,9 +37,10 @@ export class TemplateDataMapperImpl implements TemplateDataMapper {
         templateData.description = entity.description;
         templateData.logo = entity.logo;
         templateData.phone = entity.phone;
+        templateData.email = entity.email;
         templateData.address = entity.address;
         templateData.city = entity.city;
-        templateData.facebookLink = entity.siteName;
+        templateData.facebookLink = entity.facebookLink;
         templateData.instagramLink = entity.instagramLink;
         templateData.youtubeLink = entity.youtubeLink;
         templateData.whatsappLink = entity.whatsappLink;
@@ -46,6 +48,7 @@ export class TemplateDataMapperImpl implements TemplateDataMapper {
         templateData.accountId = entity.accountId;
         templateData.apiKey = entity.apiKey;
         templateData.sandbox = entity.sandbox;
+        templateData.createdDate = entity.createdDate;
         return templateData;
     }
 
@@ -66,9 +69,10 @@ export class TemplateDataMapperImpl implements TemplateDataMapper {
         template.description = data.description;
         template.logo = data.logo;
         template.phone = data.phone;
+        template.email = data.email;
         template.address = data.address;
         template.city = data.city;
-        template.facebookLink = data.siteName;
+        template.facebookLink = data.facebookLink;
         template.instagramLink = data.instagramLink;
         template.youtubeLink = data.youtubeLink;
         template.whatsappLink = data.whatsappLink;
@@ -76,6 +80,7 @@ export class TemplateDataMapperImpl implements TemplateDataMapper {
         template.accountId = data.accountId;
         template.apiKey = data.apiKey;
         template.sandbox = data.sandbox;
+        template.createdDate = data.createdDate;
         return template;
     }
 
