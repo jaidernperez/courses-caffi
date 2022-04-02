@@ -23,7 +23,7 @@ export class RequestTemplateValidation {
             logo: Joi.string().required(),
             phone: Joi.string().alphanum().required(),
             email: Joi.string().email().required(),
-            address: Joi.string().alphanum().required(),
+            address: Joi.string().min(3).required(),
             city: Joi.string().min(3).required(),
             facebookLink: Joi.string().uri().required(),
             instagramLink: Joi.string().uri().required(),
@@ -31,8 +31,8 @@ export class RequestTemplateValidation {
             whatsappLink: Joi.string().required(),
             merchantId: Joi.number().required(),
             accountId: Joi.number().required(),
-            apiKey: Joi.number().required(),
-            sandbox: Joi.number().valid([0, 1]).required(),
+            apiKey: Joi.string().required(),
+            sandbox: Joi.number().valid(0, 1).required(),
         });
     }
 
@@ -44,7 +44,7 @@ export class RequestTemplateValidation {
             logo: Joi.string().required(),
             phone: Joi.string().alphanum().required(),
             email: Joi.string().email().required(),
-            address: Joi.string().alphanum().required(),
+            address: Joi.string().min(3).required(),
             city: Joi.string().min(3).required(),
             facebookLink: Joi.string().uri().required(),
             instagramLink: Joi.string().uri().required(),
@@ -52,8 +52,8 @@ export class RequestTemplateValidation {
             whatsappLink: Joi.string().required(),
             merchantId: Joi.number().required(),
             accountId: Joi.number().required(),
-            apiKey: Joi.number().required(),
-            sandbox: Joi.number().valid([0, 1]).required(),
+            apiKey: Joi.string().required(),
+            sandbox: Joi.number().valid(0, 1).required(),
         });
     }
 }
